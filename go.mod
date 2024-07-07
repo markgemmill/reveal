@@ -5,6 +5,9 @@ go 1.21
 toolchain go1.22.5
 
 require (
+	github.com/BurntSushi/toml v1.4.0
+	github.com/markgemmill/appdirs v0.1.0-dev.0
+	github.com/markgemmill/pathlib v0.1.0
 	github.com/wailsapp/wails/v2 v2.9.1
 	golang.design/x/clipboard v0.7.0
 )

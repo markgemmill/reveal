@@ -6,6 +6,14 @@ export function GetClipboard() {
   return window['go']['main']['App']['GetClipboard']();
 }
 
+export function GetTimeout() {
+  return window['go']['main']['App']['GetTimeout']();
+}
+
+export function GetVersion() {
+  return window['go']['main']['App']['GetVersion']();
+}
+
 export function PutClipboard(arg1) {
   return window['go']['main']['App']['PutClipboard'](arg1);
 }

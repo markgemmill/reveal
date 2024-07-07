@@ -68,6 +68,14 @@ button {
 .copy-button {
     margin-bottom: 5px;
 }
+.copy-button:hover {
+    background-color: #555;
+    color: white;
+}
+.reveal-button:hover {
+    background-color: rgb(139, 17, 17);
+    color: white;
+}
 
 .password {
     flex-direction: row;

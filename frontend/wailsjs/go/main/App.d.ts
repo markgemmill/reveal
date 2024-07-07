@@ -3,4 +3,8 @@
 
 export function GetClipboard():Promise<string>;
 
+export function GetTimeout():Promise<number>;
+
+export function GetVersion():Promise<string>;
+
 export function PutClipboard(arg1:string):Promise<void>;

@@ -16,12 +16,12 @@
 <script setup lang="ts">
 import { ref, onMounted} from 'vue'
 import PasswordDisplay from './PasswordDisplay.vue'
-import { GetClipboard, PutClipboard } from '../../wailsjs/go/main/App'
+import { GetClipboard, PutClipboard, GetTimeout } from '../../wailsjs/go/main/App'
 
 const password = ref("")
 const active = ref(false)
 const visible = ref(false)
-const timeout = 6000
+let timeout = 6000 
 let passwordDate = new Date()
 
 const checkDateChange = (date: Date) => {
@@ -67,6 +67,11 @@ onMounted(() => {
     setInterval(() => {
         checkDateChange(new Date())
     }, 3600000)
+
+    GetTimeout().then((value: number) => {
+        console.debug(`Set timeout to: ${value}`)
+        timeout = value 
+    })
 })
 
 </script>
