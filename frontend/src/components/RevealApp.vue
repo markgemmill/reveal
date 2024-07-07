@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { ref, onMounted} from 'vue'
 import PasswordDisplay from './PasswordDisplay.vue'
-import { GetClipboard, PutClipboard, GetTimeout, GetSegmentSize } from '../../wailsjs/go/main/App'
+import { GetClipboard, PutClipboard, GetTimeout, GetSegmentSize, ClearClipboard } from '../../wailsjs/go/main/App'
 
 const password = ref("")
 const active = ref(false)
@@ -52,6 +52,7 @@ const setPassword = () => {
     password.value = clipboardValue 
     active.value = true
     displayPassword()
+    ClearClipboard()
    }) 
 }
 
@@ -66,6 +67,9 @@ const copyPassword = () => {
     PutClipboard(password.value).then(() => {
         console.debug("password copied to clipboard!") 
     }) 
+    setInterval(() => {
+        ClearClipboard()
+    }, 30000)
 }
 
 onMounted(() => {

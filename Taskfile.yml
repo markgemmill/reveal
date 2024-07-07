@@ -21,5 +21,6 @@ tasks:
   release:windows:
     dir: build/bin
     cmds:
-      - zip -r {{.ZIP_FILE}} reveal.exe
+      - zip {{.ZIP_FILE}} reveal.exe
+      - zip -u {{.ZIP_FILE}} ../../README.md
       - mv {{.ZIP_FILE}} ../../releases

@@ -11,7 +11,7 @@ import (
 	"golang.design/x/clipboard"
 )
 
-const version = "0.1.3"
+const version = "0.1.4"
 
 type Config struct {
 	Timeout     int64 `tomle:"timeout"`
@@ -54,6 +54,10 @@ func (a *App) GetClipboard() string {
 
 func (a *App) PutClipboard(value string) {
 	clipboard.Write(clipboard.FmtText, []byte(value))
+}
+
+func (a *App) ClearClipboard() {
+	clipboard.Write(clipboard.FmtText, []byte(""))
 }
 
 func (a *App) GetVersion() string {
