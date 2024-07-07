@@ -3,6 +3,8 @@
 
 export function GetClipboard():Promise<string>;
 
+export function GetSegmentSize():Promise<number>;
+
 export function GetTimeout():Promise<number>;
 
 export function GetVersion():Promise<string>;

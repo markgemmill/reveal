@@ -77,21 +77,22 @@ button {
     color: white;
 }
 
-.password {
+/* .password {
     flex-direction: row;
     flex-grow: 1;
-}
+} */
 
 .password-container {
     margin: 5% 10%;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-
     flex-grow: 1;
     column-gap: 30px;
     width: 100%;
+    font-size: 3em;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 .password-character {
-    font-size: 3em;
     margin-bottom: 0;
 }

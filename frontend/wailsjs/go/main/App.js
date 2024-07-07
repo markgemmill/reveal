@@ -6,6 +6,10 @@ export function GetClipboard() {
   return window['go']['main']['App']['GetClipboard']();
 }
 
+export function GetSegmentSize() {
+  return window['go']['main']['App']['GetSegmentSize']();
+}
+
 export function GetTimeout() {
   return window['go']['main']['App']['GetTimeout']();
 }

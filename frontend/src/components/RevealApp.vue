@@ -4,7 +4,11 @@
     </div>
     <div v-else class="page page-password">
         <div class="panel-password">
-            <PasswordDisplay class="password" :password="password" :visible="visible"></PasswordDisplay>
+            <PasswordDisplay 
+              :password="password" 
+              :segmentSize="segmentSize" 
+              :visible="visible"
+              ></PasswordDisplay>
         </div>
         <div class="panel-buttons">
             <button class="copy-button" @click="copyPassword">Copy</button>
@@ -16,12 +20,13 @@
 <script setup lang="ts">
 import { ref, onMounted} from 'vue'
 import PasswordDisplay from './PasswordDisplay.vue'
-import { GetClipboard, PutClipboard, GetTimeout } from '../../wailsjs/go/main/App'
+import { GetClipboard, PutClipboard, GetTimeout, GetSegmentSize } from '../../wailsjs/go/main/App'
 
 const password = ref("")
 const active = ref(false)
 const visible = ref(false)
 let timeout = 6000 
+let segmentSize = 5
 let passwordDate = new Date()
 
 const checkDateChange = (date: Date) => {
@@ -71,6 +76,9 @@ onMounted(() => {
     GetTimeout().then((value: number) => {
         console.debug(`Set timeout to: ${value}`)
         timeout = value 
+    })
+    GetSegmentSize().then((value: number) => {
+        segmentSize = value 
     })
 })
 

@@ -11,10 +11,11 @@ import (
 	"golang.design/x/clipboard"
 )
 
-const version = "0.1.2"
+const version = "0.1.3"
 
 type Config struct {
-	Timeout int64
+	Timeout     int64 `tomle:"timeout"`
+	SegmentSize int   `toml:"segment_size"`
 }
 
 // App struct
@@ -63,6 +64,16 @@ func (a *App) GetTimeout() int64 {
 	return a.cfg.Timeout
 }
 
+func (a *App) GetSegmentSize() int {
+	if a.cfg.SegmentSize < 3 {
+		return 3
+	}
+	if a.cfg.SegmentSize > 5 {
+		return 5
+	}
+	return a.cfg.SegmentSize
+}
+
 func (a *App) configInit() (pathlib.Path, error) {
 	appDirs := appdirs.NewAppDirs("reveal", "")
 	appDir := pathlib.NewPath(appDirs.UserConfigDir(), 0777)
@@ -100,5 +111,16 @@ func (a *App) readConfig(pth pathlib.Path) {
 	}
 
 	runtime.LogDebug(a.ctx, fmt.Sprintf("CONFIG TIMEOUT: %d", config.Timeout))
+	runtime.LogDebug(a.ctx, fmt.Sprintf("CONFIG SEGMENT SIZE: %d", config.SegmentSize))
+
+	if config.SegmentSize == 0 {
+		config.SegmentSize = 4
+		cfgUpdate, err := toml.Marshal(&config)
+		if err != nil {
+			panic(err)
+		}
+		pth.Write(cfgUpdate)
+	}
+
 	a.cfg = &config
 }
