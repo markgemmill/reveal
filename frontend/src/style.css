@@ -9,6 +9,7 @@ body {
     padding: 5%;
     display: flex;
     flex-direction: column;
+    background-color: white;
 }
 
 #app {

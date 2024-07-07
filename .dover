@@ -1,0 +1,5 @@
+[dover]
+version = "0.1.0"
+versioned_files = [
+	"app.go"
+]

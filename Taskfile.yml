@@ -2,6 +2,10 @@
 
 version: '3'
 
+vars:
+  VERSION:
+    sh: dover -f 000a0
+  ZIP_FILE: reveal-{{.VERSION}}-win.zip
 
 tasks:
   build:
@@ -13,3 +17,9 @@ tasks:
     cmds:
       - wails build --clean --platform="windows/amd64"
     silent: true
+
+  release:windows:
+    dir: build/bin
+    cmds:
+      - zip -r {{.ZIP_FILE}} reveal.exe
+      - mv {{.ZIP_FILE}} ../../releases

@@ -6,6 +6,8 @@ import (
 	"golang.design/x/clipboard"
 )
 
+const version = "0.1.1"
+
 // App struct
 type App struct {
 	ctx context.Context
@@ -34,4 +36,8 @@ func (a *App) GetClipboard() string {
 
 func (a *App) PutClipboard(value string) {
 	clipboard.Write(clipboard.FmtText, []byte(value))
+}
+
+func (a *App) GetVersion() string {
+	return version
 }
