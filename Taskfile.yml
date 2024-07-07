@@ -1,0 +1,15 @@
+# https://taskfile.dev
+
+version: '3'
+
+
+tasks:
+  build:
+    cmds:
+      - wails build --clean
+    silent: true
+
+  build:windows:
+    cmds:
+      - wails build --clean --platform="windows/amd64"
+    silent: true

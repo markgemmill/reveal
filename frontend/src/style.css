@@ -1,0 +1,88 @@
+html {
+    text-align: center;
+    color: black;
+}
+
+body {
+    margin: auto;
+    font-family: monospace;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+    height: 90vh;
+    width: 90vw;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 90%;
+    margin: 5%;
+}
+.page-start {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.page-password {
+
+}
+.panel-password { 
+    display: flex;
+    flex-grow: 1;
+
+}
+.panel-buttons {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    width: 100%;
+}
+    
+.start-button {
+    height: 250px;
+    width: 250px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: greenyellow;
+    border-color: transparent;
+    font-size: 4em;
+
+}
+button {
+    flex-grow: 0;
+    background-color: white;
+    border: 1px solid #CCC;
+    font-size: 2em;
+    padding: 10px 15px;
+}
+.copy-button {
+    margin-bottom: 5px;
+}
+
+.password {
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.password-container {
+    margin: 5% 10%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+
+    flex-grow: 1;
+    column-gap: 30px;
+    width: 100%;
+}
+.password-character {
+    font-size: 3em;
+    margin-bottom: 0;
+}
