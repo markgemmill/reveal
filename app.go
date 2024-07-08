@@ -11,7 +11,7 @@ import (
 	"golang.design/x/clipboard"
 )
 
-const version = "0.1.4"
+const version = "0.1.5"
 
 type Config struct {
 	Timeout     int64 `tomle:"timeout"`

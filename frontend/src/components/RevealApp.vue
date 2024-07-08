@@ -29,12 +29,12 @@ let timeout = 6000
 let segmentSize = 5
 let passwordDate = new Date()
 
-const checkDateChange = (date: Date) => {
+const checkDateChange = () => {
     const currentDate = new Date()
     if (
-        currentDate.getFullYear() !== date.getFullYear() || 
-        currentDate.getMonth() !== date.getMonth() ||
-        currentDate.getDate() !== date.getDate()
+        currentDate.getFullYear() !== passwordDate.getFullYear() || 
+        currentDate.getMonth() !== passwordDate.getMonth() ||
+        currentDate.getDate() !== passwordDate.getDate()
     ) {
         passwordDate = currentDate
         resetPassword()
@@ -67,14 +67,14 @@ const copyPassword = () => {
     PutClipboard(password.value).then(() => {
         console.debug("password copied to clipboard!") 
     }) 
-    setInterval(() => {
+    setTimeout(() => {
         ClearClipboard()
     }, 30000)
 }
 
 onMounted(() => {
     setInterval(() => {
-        checkDateChange(new Date())
+        checkDateChange()
     }, 3600000)
 
     GetTimeout().then((value: number) => {
