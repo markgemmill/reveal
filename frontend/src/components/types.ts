@@ -1,0 +1,1 @@
+export type DockPosition = "center" | "ul" | "ur" | "ll" | "lr"

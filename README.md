@@ -26,15 +26,19 @@ The reveal button will display the password again.
 
 The configuration files can be found at C:\Users\<username>\AppData\Local\reveal\config.toml.
 
-Configuration consists of two entries:
+Configuration consists of four entries:
 
 ```
-timeout = 30000
+timeout = 30
 segment_size = 4
+copy_timeout = 10
+dock_position = "ur"
 ```
 
-`timeout` is a value in milliseconds. 30,000 == 30 seconds.
+`timeout` is a value in seconds.
 `segement_size` can be a value between 3 and 5.
+`copy_timeout` is a value in seconds and controls how long the value will be available on the clipboard. 
+`dock_position` can be one of "center", "ul", "ur", "ll", "lr" (upper/lower/left/right)
 
 
 ### Install

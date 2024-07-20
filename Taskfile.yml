@@ -18,9 +18,19 @@ tasks:
       - wails build --clean --platform="windows/amd64"
     silent: true
 
+  build:darwin:
+    cmds:
+      - wails build --clean --platform="darwin/arm64"
+    silent: true
+
   release:windows:
     dir: build/bin
     cmds:
       - zip {{.ZIP_FILE}} reveal.exe
       - zip -u {{.ZIP_FILE}} ../../README.md
       - mv {{.ZIP_FILE}} ../../releases
+
+  release:
+    cmds:
+      - goreleaser release --rm-dist --skip-announce
+

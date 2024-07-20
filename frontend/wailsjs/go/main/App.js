@@ -10,6 +10,14 @@ export function GetClipboard() {
   return window['go']['main']['App']['GetClipboard']();
 }
 
+export function GetCopyTimeout() {
+  return window['go']['main']['App']['GetCopyTimeout']();
+}
+
+export function GetDockPosition() {
+  return window['go']['main']['App']['GetDockPosition']();
+}
+
 export function GetSegmentSize() {
   return window['go']['main']['App']['GetSegmentSize']();
 }
@@ -24,4 +32,8 @@ export function GetVersion() {
 
 export function PutClipboard(arg1) {
   return window['go']['main']['App']['PutClipboard'](arg1);
+}
+
+export function WriteConfig(arg1, arg2, arg3, arg4) {
+  return window['go']['main']['App']['WriteConfig'](arg1, arg2, arg3, arg4);
 }

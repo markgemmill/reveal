@@ -19,6 +19,7 @@ body {
     text-align: center;
     height: 90vh;
     width: 90vw;
+    position: relative;
 }
 
 .page {
@@ -58,41 +59,53 @@ body {
     font-size: 4em;
 
 }
+
 button {
-    flex-grow: 0;
-    background-color: white;
-    border: 1px solid #CCC;
-    font-size: 2em;
-    padding: 10px 15px;
-}
-.copy-button {
     margin-bottom: 5px;
 }
-.copy-button:hover {
+
+button:hover {
     background-color: #555;
     color: white;
 }
-.reveal-button:hover {
-    background-color: rgb(139, 17, 17);
-    color: white;
-}
-
-/* .password {
-    flex-direction: row;
-    flex-grow: 1;
-} */
 
 .password-container {
-    margin: 5% 10%;
+    margin: 15% 0% 5% 0%;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
+    text-align: center;
     flex-grow: 1;
     column-gap: 30px;
     width: 100%;
     font-size: 3em;
     font-family:'Courier New', Courier, monospace;
     font-weight: bold;
+    user-select: none;
+    -webkit-user-select: none;
 }
 .password-character {
     margin-bottom: 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.settings-button {
+    position:absolute;
+    top: -5px;
+    right: -5px;
+    height: 24px;
+    width: 24px;
+}
+.dock-button {
+    position:absolute;
+    top: -5px;
+    right: 30px;
+    height: 24px;
+    width: 24px;
+}
+.reset-button {
+    position:absolute;
+    top: -5px;
+    right: 70px;
+    height: 24px;
+    width: 24px;
 }

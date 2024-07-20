@@ -1,12 +1,12 @@
 <template>
     <div class="password-container" :style="styles">
-        <div v-if="props.visible" v-for="letter, index in password" class="password-character">{{ letter }}</div>
+        <div v-if="visible" v-for="letter, index in password" class="password-character">{{ letter }}</div>
         <div v-else v-for="letter, index in hiddenPassword" class="password-character">{{ letter }}</div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
+import { ref, toRefs, reactive, computed, onMounted } from 'vue'
 
 const password = ref("")
 const hiddenPassword = ref("")
@@ -17,8 +17,12 @@ const props = defineProps<{
     visible: boolean
 }>()
 
-const styles = reactive({
-    gridTemplateColumns: "auto ".repeat(props.segmentSize) 
+const { visible, segmentSize } = toRefs(props)
+
+const styles = computed(() => {
+    return {
+        gridTemplateColumns: "auto ".repeat(segmentSize.value) 
+    }
 })
 
 onMounted(() => {

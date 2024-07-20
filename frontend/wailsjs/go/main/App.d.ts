@@ -5,6 +5,10 @@ export function ClearClipboard():Promise<void>;
 
 export function GetClipboard():Promise<string>;
 
+export function GetCopyTimeout():Promise<number>;
+
+export function GetDockPosition():Promise<string>;
+
 export function GetSegmentSize():Promise<number>;
 
 export function GetTimeout():Promise<number>;
@@ -12,3 +16,5 @@ export function GetTimeout():Promise<number>;
 export function GetVersion():Promise<string>;
 
 export function PutClipboard(arg1:string):Promise<void>;
+
+export function WriteConfig(arg1:number,arg2:number,arg3:number,arg4:string):Promise<void>;
